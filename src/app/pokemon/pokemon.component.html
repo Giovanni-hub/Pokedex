@@ -1,0 +1,26 @@
+<div id="wrapper" [ngStyle]="{'background-image': 'url(./assets/img/pokedex.jpg)'}">
+    <h1>({{pokemon.id}}) {{pokemon.name}}</h1>
+    <div id="pokemon">
+        <img [src]="pokemon.sprites.front_default" />
+        <div id="description">
+            <table>
+                <tr>
+                    <td>Taille</td>
+                    <td>{{pokemon.height}}</td>
+                </tr>
+                <tr>
+                    <td>Poid</td>
+                    <td>{{pokemon.weight}}</td>
+                </tr>
+                <tr *ngFor="let statistique of pokemon.stats">
+                    <td>{{statistique.stat.name}}</td>
+                    <td>Base {{statistique.base_stat}}, Effort {{statistique.effort}}</td>
+                </tr>
+                <tr>
+                    <td>Types</td>
+                    <td><span *ngFor="let pokemontype of pokemon.types">{{pokemontype.type.name}}, </span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

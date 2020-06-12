@@ -1,0 +1,13 @@
+<div id="wrapper" [ngStyle]="{'background-image': 'url(./assets/img/pokedex.jpg)'}">
+
+    <h1>Pokedex</h1>
+    <input id="term" placeholder="Search" type="text" [(ngModel)]="term">
+    <div id="pokedex">
+        <div class="pokemon" *ngFor="let pokemon of pokedex | filter:term;">
+            <a [title]="pokemon.name" [routerLink]="['/pokemon', getIndex(pokemon)]">
+                <div>[{{getIndex(pokemon)}}] {{pokemon.name}}</div>
+                <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +(getIndex(pokemon)) +'.png'">
+            </a>
+        </div>
+    </div>
+</div>
